@@ -14,11 +14,11 @@
         echo ""
         read PKGARCH
         echo ""
-        echo "Hangi yayın kanalını indirmek istersiniz?"
+        echo "Hangi sürümü paketlemek istersiniz?"
         echo ""
-        echo "[1] Firefox Stable sürüm"
-        echo "[2] Firefox Beta sürüm"
-        echo "[3] Firefox Developer Edition"
+        echo "[1] Firefox Stable sürümü"
+        echo "[2] Firefox Beta sürümü"
+        echo "[3] Firefox Developer sürümü"
         echo ""
         echo "Lütfen aşağı bir sayı girin:"
         read FXREL
