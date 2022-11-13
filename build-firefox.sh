@@ -3,24 +3,24 @@
 # ozgurun degisikligi budur
     # Prompt for architecture and release channel
         clear
-        echo "Mozilla Firefox packager for Debian-based Linux distributions"
+        echo "Debian tabanlı Linux dağıtımları için Mozilla Firefox paketleyici"
         echo ""
-        echo "Which architecture would you like to target?"
+        echo "Hangi mimariyi seçmek istersiniz?"
         echo ""
         echo "[1] i386  (32-bit)"
         echo "[2] amd64 (64-bit)"
         echo ""
-        echo "Please enter a number below:"
+        echo "Lütfen aşağıya bir sayı girin:"
         echo ""
         read PKGARCH
         echo ""
-        echo "Which release channel would you like to download?"
+        echo "Hangi yayın kanalını indirmek istersiniz?"
         echo ""
-        echo "[1] Firefox Quantum Stable channel release"
-        echo "[2] Firefox Quantum Beta channel release"
+        echo "[1] Firefox Stable sürüm"
+        echo "[2] Firefox Beta sürüm"
         echo "[3] Firefox Developer Edition"
         echo ""
-        echo "Please enter a number below:"
+        echo "Lütfen aşağı bir sayı girin:"
         read FXREL
 
     # Set variables for user options
@@ -48,10 +48,10 @@
             fi
 
     # Check for the latest version of Firefox
-        VERSION=${VERSION:-$(wget --spider -S --max-redirect 0 "https://download.mozilla.org/?product=${FXCHANNEL}&os=${FXOS}&lang=en-US" 2>&1 | sed -n '/Location: /{s|.*/firefox-\(.*\)\.tar.*|\1|p;q;}')}
+        VERSION=${VERSION:-$(wget --spider -S --max-redirect 0 "https://download.mozilla.org/?product=${FXCHANNEL}&os=${FXOS}&lang=tr" 2>&1 | sed -n '/Location: /{s|.*/firefox-\(.*\)\.tar.*|\1|p;q;}')}
 
     # Set download URL
-        FIREFOXPKG="https://download-installer.cdn.mozilla.net/pub/${FXDIR}/releases/${VERSION}/linux-${FXARCH}/en-US/firefox-${VERSION}.tar.bz2"
+        FIREFOXPKG="https://download-installer.cdn.mozilla.net/pub/${FXDIR}/releases/${VERSION}/linux-${FXARCH}/tr/firefox-${VERSION}.tar.bz2"
 
     # Download and extract the latest Firefox release package
         clear
