@@ -1,4 +1,4 @@
-# Debian tabanlı Linux dağıtımları için Mozilla Firefox (Türkçe) .deb paketleyici
+# Debian tabanlı Linux dağıtımları için Mozilla Firefox (TR 🇹🇷) .deb paketleyici
 
 Öncelikle dosyanın program olarak çalışmasına izin verelim
 # chmod +x build-firefox.sh 
