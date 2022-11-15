@@ -7,3 +7,6 @@ Aşağıdaki komutla çalıştırıp .deb dosyasını alın :)
 # sudo ./build-firefox.sh 
 
 
+! (firefox-build.png)
+
+
