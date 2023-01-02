@@ -1,4 +1,4 @@
-# Debian/Pardus için Mozilla Firefox (TR 🇹🇷) .deb paketleyici
+# Debian/Pardus için Mozilla Firefox (Türkçe) .deb paketleyici
 
 Öncelikle dosyanın program olarak çalışmasına izin verelim
 # chmod +x build-firefox.sh 
