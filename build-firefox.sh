@@ -1,51 +1,16 @@
 #!/bin/bash
 
 # ozgurun degisikligi budur
-    # Prompt for architecture and release channel
-        clear
-        echo "Debian tabanlı Linux dağıtımları için Mozilla Firefox paketleyici"
-        echo ""
-        echo "Hangi mimariyi seçmek istersiniz?"
-        echo ""
-        echo "[1] i386  (32-bit)"
-        echo "[2] amd64 (64-bit)"
-        echo ""
-        echo "Lütfen aşağıya bir sayı girin:"
-        echo ""
-        read PKGARCH
-        echo ""
-        echo "Hangi sürümü paketlemek istersiniz?"
-        echo ""
-        echo "[1] Firefox Stable sürümü"
-        echo "[2] Firefox Beta sürümü"
-        echo "[3] Firefox Developer sürümü"
-        echo ""
-        echo "Lütfen aşağı bir sayı girin:"
-        read FXREL
-
-    # Set variables for user options
+   
         # Architecture
-            if [ $PKGARCH = 1 ]; then
-                FXOS=linux
-                FXARCH=i686
-                DEBARCH=i386
-            elif [ $PKGARCH = 2 ]; then
-                FXOS=linux64
-                FXARCH=x86_64
-                DEBARCH=amd64
-            fi
-
+        FXOS=linux64
+        FXARCH=x86_64
+        DEBARCH=amd64
+            
         # Release channel
-            if [ $FXREL = 1 ]; then
-                FXCHANNEL=firefox-latest-ssl
-                FXDIR=firefox
-            elif [ $FXREL = 2 ]; then
-                FXCHANNEL=firefox-beta-latest-ssl
-                FXDIR=firefox
-            elif [ $FXREL = 3 ]; then
-                FXCHANNEL=firefox-devedition-latest-ssl
-                FXDIR=devedition
-            fi
+        FXCHANNEL=firefox-latest-ssl
+        FXDIR=firefox
+           
 
     # Check for the latest version of Firefox
         VERSION=${VERSION:-$(wget --spider -S --max-redirect 0 "https://download.mozilla.org/?product=${FXCHANNEL}&os=${FXOS}&lang=tr" 2>&1 | sed -n '/Location: /{s|.*/firefox-\(.*\)\.tar.*|\1|p;q;}')}
