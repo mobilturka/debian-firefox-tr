@@ -15,7 +15,7 @@ jobs:
 
       - name: Building deb package
         run: |
-          sudo bash build-firefox.sh
+          bash build-firefox.sh
           
           
       - uses: "marvinpinto/action-automatic-releases@latest"
