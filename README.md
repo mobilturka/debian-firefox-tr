@@ -6,5 +6,3 @@
 Aşağıdaki komutla çalıştırıp .deb dosyasını alın :)
 # ./build-firefox.sh 
 
-![screenshot](firefox-deb-build.png "screenshot")
-
