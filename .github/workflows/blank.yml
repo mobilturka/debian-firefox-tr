@@ -15,13 +15,15 @@ jobs:
       - name: build
         run: |
           sudo bash build-firefox.sh
-
-
+          sudo mkdir -p /output/
+          sudo mv ../*.deb /output/
+          sudo mv ./*.deb /output/
+          
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
-          automatic_release_tag: "latest"
+          automatic_release_tag: "current"
           prerelease: false
-          title: "Auto build"
+          title: "Latest release"
           files: |
             /output/*
