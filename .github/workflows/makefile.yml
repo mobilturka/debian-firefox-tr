@@ -2,9 +2,9 @@ name: CI
 
 on:
   push:
-    branches: [ main ]
-
-  workflow_dispatch:
+    branches: [ master ]
+  schedule:
+    - cron: "0 0 * * 6"
 
 jobs:
   build:
@@ -12,18 +12,14 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-
-      - name: Building deb package
+      - name: build
         run: |
-        chmod +x build-firefox.sh
-        bash build-firefox.sh
-          
-          
+          bash build-firefox.sh
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
-          automatic_release_tag: "current"
+          automatic_release_tag: "latest"
           prerelease: false
-          title: "Latest release"
+          title: "Auto build"
           files: |
             /output/*
