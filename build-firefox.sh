@@ -43,7 +43,7 @@
         chmod 775 firefox-${VERSION}_${DEBARCH}/DEBIAN/*
 
         printf "Architecture: $DEBARCH\n" | tee -a firefox-${VERSION}_${DEBARCH}/DEBIAN/control
-        printf "Version: 1:$VERSION+b0~mozilla\n" | tee -a firefox-${VERSION}_${DEBARCH}/DEBIAN/control
+        printf "Version: $VERSION\n" | tee -a firefox-${VERSION}_${DEBARCH}/DEBIAN/control
 
         printf "Installed-Size: " >> firefox-${VERSION}_${DEBARCH}/DEBIAN/control | du -sx --exclude DEBIAN firefox-${VERSION}_${DEBARCH} | tee -a firefox-${VERSION}_${DEBARCH}/DEBIAN/control
         sed -i 's/firefox-'$VERSION'_'$DEBARCH'//g' firefox-${VERSION}_${DEBARCH}/DEBIAN/control
