@@ -1,8 +1,8 @@
 Package: firefox
 Name: Mozilla Firefox
-Maintainer: Mozilla Foundation
+Maintainer: Mobilturka
 Priority: standard
 Section: web
-Homepage: http://www.firefox.com/
+Homepage: https://www.mozilla.org/tr/firefox/browsers/
 Description: Mozilla Firefox web browser
  Firefox delivers safe, easy web browsing. A familiar user interface, enhanced security features including protection from online identity theft, and integrated search let you get the most out of the web.
