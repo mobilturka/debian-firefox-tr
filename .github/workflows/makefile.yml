@@ -17,8 +17,8 @@ jobs:
           bash build-firefox.sh
           
           sudo mkdir -p /output/
-          sudo mv firefox*.deb /output/
-          sudo mv ./firefox*.deb /output/
+          sudo mv *.deb /output/
+          sudo mv ./*.deb /output/
           
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
