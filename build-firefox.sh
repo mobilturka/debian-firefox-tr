@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# ozgurun degisikligi budur
+# Firefox son sürüm (Türkçe) .deb paketleme scpriti
    
         # Architecture
         FXOS=linux64
