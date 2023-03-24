@@ -15,6 +15,7 @@ jobs:
       - name: build
         run: |
           bash build-firefox.sh
+          bash build-firefox-beta.sh
           
           sudo mkdir -p /output/
           sudo mv *.deb /output/
