@@ -20,42 +20,42 @@
 
     # Download and extract the latest Firefox release package
         clear
-        echo "Downloading Firefox $VERSION ..."
-        wget --quiet --show-progress -O "firefox-$VERSION.tar.bz2" $FIREFOXPKG
+        echo "Downloading Firefox Beta $VERSION ..."
+        wget --quiet --show-progress -O "firefox-beta-$VERSION.tar.bz2" $FIREFOXPKG
         clear
         echo "Extracting files..."
-        tar xvf firefox-$VERSION.tar.bz2
-        rm firefox-$VERSION.tar.bz2
+        tar xvf firefox-beta-$VERSION.tar.bz2
+        rm firefox-beta-$VERSION.tar.bz2
 
     # Move files to Debian package build directory
-        mkdir firefox-${VERSION}_${DEBARCH}
-        mkdir -p firefox-${VERSION}_${DEBARCH}/usr/share/applications
-        mkdir -p firefox-${VERSION}_${DEBARCH}/opt
-        mv firefox firefox-${VERSION}_${DEBARCH}/opt/firefox
+        mkdir firefox-beta-${VERSION}_${DEBARCH}
+        mkdir -p firefox-beta-${VERSION}_${DEBARCH}/usr/share/applications
+        mkdir -p firefox-beta${VERSION}_${DEBARCH}/opt
+        mv firefox firefox-beta-${VERSION}_${DEBARCH}/opt/firefox
 
     # Create .deb package of Firefox
         clear
         echo "Preparing to build Firefox installation package ..."
-        mkdir firefox-${VERSION}_${DEBARCH}/DEBIAN
-        cp ./src-beta/DEBIAN/* firefox-${VERSION}_${DEBARCH}/DEBIAN/
-        chmod +x firefox-${VERSION}_${DEBARCH}/DEBIAN/postinst
-        chmod +x firefox-${VERSION}_${DEBARCH}/DEBIAN/postrm
-        chmod 775 firefox-${VERSION}_${DEBARCH}/DEBIAN/*
+        mkdir firefox-beta-${VERSION}_${DEBARCH}/DEBIAN
+        cp ./src-beta/DEBIAN/* firefox-beta-${VERSION}_${DEBARCH}/DEBIAN/
+        chmod +x firefox-beta-${VERSION}_${DEBARCH}/DEBIAN/postinst
+        chmod +x firefox-beta-${VERSION}_${DEBARCH}/DEBIAN/postrm
+        chmod 775 firefox-beta-${VERSION}_${DEBARCH}/DEBIAN/*
 
-        printf "Architecture: $DEBARCH\n" | tee -a firefox-${VERSION}_${DEBARCH}/DEBIAN/control
-        printf "Version: $VERSION\n" | tee -a firefox-${VERSION}_${DEBARCH}/DEBIAN/control
+        printf "Architecture: $DEBARCH\n" | tee -a firefox-beta-${VERSION}_${DEBARCH}/DEBIAN/control
+        printf "Version: $VERSION\n" | tee -a firefox-beta-${VERSION}_${DEBARCH}/DEBIAN/control
 
-        printf "Installed-Size: " >> firefox-${VERSION}_${DEBARCH}/DEBIAN/control | du -sx --exclude DEBIAN firefox-${VERSION}_${DEBARCH} | tee -a firefox-${VERSION}_${DEBARCH}/DEBIAN/control
-        sed -i 's/firefox-'$VERSION'_'$DEBARCH'//g' firefox-${VERSION}_${DEBARCH}/DEBIAN/control
+        printf "Installed-Size: " >> firefox-beta-${VERSION}_${DEBARCH}/DEBIAN/control | du -sx --exclude DEBIAN firefox-beta-${VERSION}_${DEBARCH} | tee -a firefox-beta-${VERSION}_${DEBARCH}/DEBIAN/control
+        sed -i 's/firefox-beta'$VERSION'_'$DEBARCH'//g' firefox-beta-${VERSION}_${DEBARCH}/DEBIAN/control
 
-        cp ./src-beta/launcher/firefox.desktop firefox-${VERSION}_${DEBARCH}/usr/share/applications/firefox.desktop
+        cp ./src-beta/launcher/firefox.desktop firefox-beta-${VERSION}_${DEBARCH}/usr/share/applications/firefox.desktop
     
-        cd firefox-${VERSION}_${DEBARCH}
+        cd firefox-beta-${VERSION}_${DEBARCH}
         find . -type f ! -regex '.*.hg.*' ! -regex '.*?debian-binary.*' ! -regex '.*?DEBIAN.*' -printf '%P ' | xargs md5sum > DEBIAN/md5sums
         cd ..
 
-        dpkg-deb --build firefox-${VERSION}_${DEBARCH}
-        rm -rf firefox-${VERSION}_${DEBARCH}
+        dpkg-deb --build firefox-beta-${VERSION}_${DEBARCH}
+        rm -rf firefox-beta-${VERSION}_${DEBARCH}
 
     # If --install argument was passed, install the built .deb package
         while test $# -gt 0
@@ -63,8 +63,8 @@
             case "$1" in
                 --install) 
                 clear
-                echo "Installing Firefox $VERSION ..."
-                sudo dpkg -i firefox-${VERSION}_${DEBARCH}.deb
+                echo "Installing Firefox Beta $VERSION ..."
+                sudo dpkg -i firefox-beta-${VERSION}_${DEBARCH}.deb
                 echo ""
                     ;;
             esac
