@@ -16,7 +16,7 @@
         VERSION=${VERSION:-$(wget --spider -S --max-redirect 0 "https://download.mozilla.org/?product=${FXCHANNEL}&os=${FXOS}&lang=tr" 2>&1 | sed -n '/Location: /{s|.*/firefox-\(.*\)\.tar.*|\1|p;q;}')}
 
     # Set download URL
-        FIREFOXPKG="https://download-installer.cdn.mozilla.net/pub/${FXDIR}/releases/${VERSION}/linux-${FXARCH}/tr/firefox-beta-${VERSION}.tar.bz2"
+        FIREFOXPKG="https://download-installer.cdn.mozilla.net/pub/${FXDIR}/releases/${VERSION}/linux-${FXARCH}/tr/firefox-${VERSION}.tar.bz2"
 
     # Download and extract the latest Firefox release package
         clear
