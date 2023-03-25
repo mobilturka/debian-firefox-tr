@@ -16,7 +16,7 @@
         VERSION=${VERSION:-$(wget --spider -S --max-redirect 0 "https://download.mozilla.org/?product=${FXCHANNEL}&os=${FXOS}&lang=tr" 2>&1 | sed -n '/Location: /{s|.*/firefox-\(.*\)\.tar.*|\1|p;q;}')}
 
     # Set download URL
-        FIREFOXPKG="https://download-installer.cdn.mozilla.net/pub/${FXDIR}/releases/${VERSION}/linux-${FXARCH}/tr/firefox-${VERSION}.tar.bz2"
+        FIREFOXPKG="https://download-installer.cdn.mozilla.net/pub/${FXDIR}/releases/${VERSION}/linux-${FXARCH}/tr/firefox-beta-${VERSION}.tar.bz2"
 
     # Download and extract the latest Firefox release package
         clear
@@ -48,7 +48,7 @@
         printf "Installed-Size: " >> firefox-beta-${VERSION}_${DEBARCH}/DEBIAN/control | du -sx --exclude DEBIAN firefox-beta-${VERSION}_${DEBARCH} | tee -a firefox-beta-${VERSION}_${DEBARCH}/DEBIAN/control
         sed -i 's/firefox-beta'$VERSION'_'$DEBARCH'//g' firefox-beta-${VERSION}_${DEBARCH}/DEBIAN/control
 
-        cp ./src-beta/launcher/firefox.desktop firefox-beta-${VERSION}_${DEBARCH}/usr/share/applications/firefox.desktop
+        cp ./src-beta/launcher/firefox-beta.desktop firefox-beta-${VERSION}_${DEBARCH}/usr/share/applications/firefox-beta.desktop
     
         cd firefox-beta-${VERSION}_${DEBARCH}
         find . -type f ! -regex '.*.hg.*' ! -regex '.*?debian-binary.*' ! -regex '.*?DEBIAN.*' -printf '%P ' | xargs md5sum > DEBIAN/md5sums
