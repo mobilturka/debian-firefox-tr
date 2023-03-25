@@ -37,7 +37,7 @@
         clear
         echo "Preparing to build Firefox installation package ..."
         mkdir firefox-${VERSION}_${DEBARCH}/DEBIAN
-        cp ./src/DEBIAN/* firefox-${VERSION}_${DEBARCH}/DEBIAN/
+        cp ./src-beta/DEBIAN/* firefox-${VERSION}_${DEBARCH}/DEBIAN/
         chmod +x firefox-${VERSION}_${DEBARCH}/DEBIAN/postinst
         chmod +x firefox-${VERSION}_${DEBARCH}/DEBIAN/postrm
         chmod 775 firefox-${VERSION}_${DEBARCH}/DEBIAN/*
@@ -48,7 +48,7 @@
         printf "Installed-Size: " >> firefox-${VERSION}_${DEBARCH}/DEBIAN/control | du -sx --exclude DEBIAN firefox-${VERSION}_${DEBARCH} | tee -a firefox-${VERSION}_${DEBARCH}/DEBIAN/control
         sed -i 's/firefox-'$VERSION'_'$DEBARCH'//g' firefox-${VERSION}_${DEBARCH}/DEBIAN/control
 
-        cp ./src/launcher/firefox.desktop firefox-${VERSION}_${DEBARCH}/usr/share/applications/firefox.desktop
+        cp ./src-beta/launcher/firefox.desktop firefox-${VERSION}_${DEBARCH}/usr/share/applications/firefox.desktop
     
         cd firefox-${VERSION}_${DEBARCH}
         find . -type f ! -regex '.*.hg.*' ! -regex '.*?debian-binary.*' ! -regex '.*?DEBIAN.*' -printf '%P ' | xargs md5sum > DEBIAN/md5sums
