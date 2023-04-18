@@ -4,4 +4,4 @@
 # chmod +x build-firefox.sh
 
 Aşağıdaki komutla çalıştırıp .deb dosyasını alın :) 
-# ./build-firefox.sh 
+# ./build-firefox.sh
