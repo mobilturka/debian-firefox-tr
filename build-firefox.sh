@@ -54,7 +54,7 @@
         find . -type f ! -regex '.*.hg.*' ! -regex '.*?debian-binary.*' ! -regex '.*?DEBIAN.*' -printf '%P ' | xargs md5sum > DEBIAN/md5sums
         cd ..
 
-        dpkg-deb -Zxz --build firefox-${VERSION}_${DEBARCH}
+        dpkg-deb -Zgzip --build firefox-${VERSION}_${DEBARCH}
         rm -rf firefox-${VERSION}_${DEBARCH}
 
     # If --install argument was passed, install the built .deb package
