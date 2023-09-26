@@ -8,3 +8,4 @@ Aşağıdaki komutla çalıştırıp .deb dosyasını alın :)
 
 .deb paketini indirmek için:
 https://github.com/mobilturka/debian-firefox-tr/releases/tag/latest
+
